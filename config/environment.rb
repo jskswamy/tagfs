@@ -7,6 +7,10 @@
 
 require File.join(File.dirname(__FILE__), 'boot')
 
+$:.unshift(File.dirname(__FILE__) + '/../lib')
+$:.unshift(File.dirname(__FILE__) + '/../lib/models')
+
+
 # Auto-require default libraries and those for the current Rails environment.
 Bundler.require :default, DaemonKit.env
 

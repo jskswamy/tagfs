@@ -5,7 +5,7 @@
 # installed.
 
 source :gemcutter
-
+source 'http://gems.github.com'
 # daemon-kit
 gem 'daemon-kit'
 
@@ -16,3 +16,4 @@ gem 'rb-fsevent'
 # gem 'mail' # For reporting exceptions via mail
 
 # For more information on bundler, please visit http://gembundler.com
+gem 'neo4j'
