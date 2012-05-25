@@ -14,20 +14,22 @@ class State
   end
 end
 
-def get_files_with_ctime dir
-  files = Dir.entries(dir).select do |file|
-    file_path = File.join dir, file
-    !(File.directory? file) && File.ctime(file_path) > State.last_read_time
+class DirHelper
+  def self.ignore_self_and_parent dir
+     Dir.entries(dir).reject{|f| ['.','..'].include?(f)}
   end
-  files.map do |f|
-    file_path = File.join dir, f
-    file_ctime = File.ctime(file_path)
-    {:file_name => file_path, :ctime => File.ctime(file_path)}
+
+  def self.get_full_path dir, files
+    files.map { |file| File.join dir, file  }
+  end
+
+  def self.get_files dir
+    self.get_full_path(dir,self.ignore_self_and_parent(dir))
   end
 end
 
 def list_files_changed(directories)
-  files = get_files_with_ctime( directories.first)
+  files = DirHelper.get_files(directories.first).select { |file| File.ctime(file) > State.last_read_time unless File.directory? file }
   State.last_read_time = Time.now
 end
 
