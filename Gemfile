@@ -11,6 +11,7 @@ gem 'daemon-kit'
 
 # safely (http://github.com/kennethkalmer/safely)
 gem 'safely'
+gem 'rb-fsevent'
 # gem 'toadhopper' # For reporting exceptions to hoptoad
 # gem 'mail' # For reporting exceptions via mail
 
