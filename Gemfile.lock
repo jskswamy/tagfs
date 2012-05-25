@@ -1,0 +1,15 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    daemon-kit (0.1.8.2)
+      eventmachine (>= 0.12.10)
+      safely (>= 0.3.1)
+    eventmachine (0.12.10)
+    safely (0.3.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  daemon-kit
+  safely
